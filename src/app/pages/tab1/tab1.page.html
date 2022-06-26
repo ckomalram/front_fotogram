@@ -4,16 +4,24 @@
       <ion-icon slot="icon-only" name="bonfire"></ion-icon>
   </ion-buttons>
     <ion-title>
-      FotosGram
+      Demo
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" color="light">
   <!-- refresher -->
-
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)"  pullFactor="0.8">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <!-- fin refresher -->
   <!-- posts -->
   <app-posts [posts]="posts"></app-posts>
-
+<!-- fin posts -->
   <!-- infinte scroll -->
+  <ion-infinite-scroll threshold="150px"  (ionInfinite)="loadData($event)" [disabled]="deshabilitado">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  <!-- fin infinte scroll -->
 </ion-content>
