@@ -9,6 +9,8 @@ https://documentation.onesignal.com/reference/create-notification#create-notific
 https://documentation.onesignal.com/reference/create-notification#section-send-to-specific-devices
 
 https://enable-cors.org/server.html
+https://ionicframework.com/docs/api/refresher
+https://ionicframework.com/docs/api/infinite-scroll
 
  
 # comandos de consola utilizados
