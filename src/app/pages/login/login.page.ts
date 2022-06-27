@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { IonSlides, NavController } from '@ionic/angular';
+import { UiServiceService } from 'src/app/services/ui-service.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -56,7 +57,9 @@ export class LoginPage implements OnInit {
     password: 'ckomalram'
   };
 
-  constructor(private usuarioService: UsuarioService , private navCtrl: NavController) { }
+  constructor(private usuarioService: UsuarioService , private navCtrl: NavController
+    ,private uiservice: UiServiceService
+    ) { }
 
   ngOnInit() {
   }
@@ -82,6 +85,7 @@ export class LoginPage implements OnInit {
       });
     } else {
       //mostrar mensaje de credenciales no validad.
+      this.uiservice.alertaInformativa('Credenciales no validas.');
     }
 
   }

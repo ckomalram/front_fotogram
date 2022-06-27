@@ -11,6 +11,7 @@ https://documentation.onesignal.com/reference/create-notification#section-send-t
 https://enable-cors.org/server.html
 https://ionicframework.com/docs/api/refresher
 https://ionicframework.com/docs/api/infinite-scroll
+https://ionicframework.com/docs/api/alert
 
  
 # comandos de consola utilizados
