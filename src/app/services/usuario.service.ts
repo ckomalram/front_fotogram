@@ -2,7 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { RespuestaLogin } from '../interfaces/interfaces';
+import { RespuestaUsuario, Usuario } from '../interfaces/interfaces';
 
 const API_URL = environment.apiUrl;
 @Injectable({
@@ -25,7 +25,7 @@ export class UsuarioService  {
     const data = { email, password};
 
     return new Promise(resolve => {
-      this.http.post<RespuestaLogin>(`${API_URL}/user/login`,data)
+      this.http.post<RespuestaUsuario>(`${API_URL}/user/login`,data)
       .subscribe(resp => {
         console.log(resp);
         if (resp.ok) {
@@ -40,6 +40,22 @@ export class UsuarioService  {
     });
 
 
+  }
+
+  register(usuario: Usuario){
+    return new Promise(resolve => {
+        this.http.post<RespuestaUsuario>(`${API_URL}/user/create`,usuario).subscribe(resp => {
+          console.log(resp);
+          if (resp.ok) {
+            this.guardarToken(resp.token);
+            resolve(true);
+          }else{
+            this.token = null;
+            this.storage.clear();
+            resolve(false);
+          }
+        });
+    });
   }
 
   async guardarToken(token: string){
