@@ -29,3 +29,8 @@ export interface RespuestaUsuario {
   token: string;
 }
 
+export interface RespuestaValidaToken {
+  ok:      boolean;
+  usuario: Usuario;
+}
+
