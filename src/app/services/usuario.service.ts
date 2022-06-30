@@ -12,7 +12,7 @@ const API_URL = environment.apiUrl;
 export class UsuarioService  {
 
   token: string = null;
-  usuario: Usuario={};
+  private usuario: Usuario={};
 
   constructor(private storage: Storage, private http: HttpClient, private navcontroller: NavController) {
     this.init();
@@ -92,6 +92,14 @@ export class UsuarioService  {
         }
       });
     });
+  }
+
+  getUsuario(){
+    // eslint-disable-next-line no-underscore-dangle
+    if (!this.usuario._id) {
+      this.validaToken();
+    }
+    return {...this.usuario};
   }
 
 }
