@@ -23,7 +23,7 @@ https://ionicframework.com/docs/api/alert
 * ionic capacitor run android -l --host=192.168.0.14
 * ionic capacitor add/copy android
 * ionic capacitor sync android
-* ionic g (page, module, component, service, pipe )
+* ionic g (page, module, component, service, pipe, guard )
 * npx cap init
 * ng add angular/pwa
 * ionic build --prod --service-worker
