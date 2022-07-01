@@ -56,3 +56,5 @@ A la fecha de hoy, junio 2022, para poder utilizar bien sin problemas el one sig
 > Error 'Plugin-Version' of 'unspecified' for 'com.android.build.gradle.AppPlugin@14d3f8f5' is not a valid version number
 > Los plugins  de cordoba de awesome que van con ionic v6 no están funcionando bien...
 
+incidente bloqueante arreglado
+
