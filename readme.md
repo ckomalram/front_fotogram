@@ -59,3 +59,5 @@ A la fecha de hoy, junio 2022, para poder utilizar bien sin problemas el one sig
 
 incidente bloqueante arreglado
 
+Mejoras acuerdos de la superintendencia
+mejoras billetera rama
