@@ -12,6 +12,7 @@ https://enable-cors.org/server.html
 https://ionicframework.com/docs/api/refresher
 https://ionicframework.com/docs/api/infinite-scroll
 https://ionicframework.com/docs/api/alert
+https://ionicframework.com/docs/api/toast
 
  
 # comandos de consola utilizados

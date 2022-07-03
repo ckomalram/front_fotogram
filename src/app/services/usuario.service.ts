@@ -60,6 +60,27 @@ export class UsuarioService  {
     });
   }
 
+  actualizar(usuario: Usuario){
+    const headers = new HttpHeaders({
+      'x-token': this.token
+    });
+
+    return new Promise(resolve => {
+      this.http.post<RespuestaUsuario>(`${API_URL}/user/update`,usuario, {headers}).subscribe(resp => {
+        console.log(resp);
+        if (resp.ok) {
+          this.guardarToken(resp.token);
+          resolve(true);
+        }else{
+          this.token = null;
+          this.storage.clear();
+          resolve(false);
+        }
+      });
+  });
+
+  }
+
   async guardarToken(token: string){
     this.token = token;
     await this.storage.set('token',this.token);
@@ -101,5 +122,7 @@ export class UsuarioService  {
     }
     return {...this.usuario};
   }
+
+
 
 }
