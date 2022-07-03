@@ -15,6 +15,11 @@ export class Tab1Page implements OnInit {
 
   ngOnInit(): void {
     this.loadData();
+
+/* Subscribing to the observable that is created in the post.service.ts file. */
+    this.postService.nuevoPost.subscribe(post => {
+      this.posts.unshift(post);
+    });
   }
 
   loadData(event?: any, pull: boolean = false){

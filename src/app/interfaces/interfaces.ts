@@ -1,8 +1,4 @@
-export interface RespuestaPosts {
-  ok:     boolean;
-  pagina: number;
-  posts:  Post[];
-}
+
 
 export interface Post {
   _id?:     string;
@@ -33,4 +29,17 @@ export interface RespuestaValidaToken {
   ok:      boolean;
   usuario: Usuario;
 }
+
+export interface RespuestaPosts {
+  ok:     boolean;
+  pagina: number;
+  posts:  Post[];
+}
+
+
+export interface RespuestaPost {
+  ok:   boolean;
+  post: Post;
+}
+
 
