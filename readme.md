@@ -59,3 +59,9 @@ A la fecha de hoy, junio 2022, para poder utilizar bien sin problemas el one sig
 
 > Error 'Plugin-Version' of 'unspecified' for 'com.android.build.gradle.AppPlugin@14d3f8f5' is not a valid version number
 > Los plugins  de cordoba de awesome que van con ionic v6 no están funcionando bien...
+
+
+* para permitir la geolozalicación en ios, agregar este comando en el config.xml
+<edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
+   <string>Favor brindarnos tu autorización para poder saber tu ubicación</string>
+</edit-config>
