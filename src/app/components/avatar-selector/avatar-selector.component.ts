@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-avatar-selector',
@@ -8,6 +8,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class AvatarSelectorComponent implements OnInit {
 
   @Output() avatarselected = new EventEmitter<string>();
+  @Input() avatarActual = 'av-1.png';
 
   avatars = [
     {
@@ -50,7 +51,15 @@ export class AvatarSelectorComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.avatars.forEach(avatar => avatar.seleccionado = false);
+    this.avatars.forEach(avatar => {
+      if (avatar.img === this.avatarActual) {
+        avatar.seleccionado= true;
+      }
+    });
+
+  }
 
   seleccionarAvatar(avatar: any){
     this.avatars.forEach(av => av.seleccionado = false);
