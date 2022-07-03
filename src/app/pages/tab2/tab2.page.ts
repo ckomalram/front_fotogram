@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostService } from '../../services/post.service';
+import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
+
 
 @Component({
   selector: 'app-tab2',
@@ -16,7 +18,9 @@ export class Tab2Page {
     posicion: false
   };
 
-  constructor(private postservices: PostService, private route: Router) {}
+  cargandoGeo = false;
+
+  constructor(private postservices: PostService, private route: Router, private geolocation: Geolocation) {}
 
   async crearPost(){
     console.log(this.post);
@@ -31,5 +35,26 @@ export class Tab2Page {
       this.route.navigateByUrl('/main/tabs/tab1');
 
     }
+  }
+
+  getGeo(){
+    if (!this.post.posicion) {
+      this.post.coords = null;
+      return;
+    }
+
+    this.cargandoGeo = true;
+    this.geolocation.getCurrentPosition().then((resp) => {
+      // resp.coords.latitude
+      // resp.coords.longitude
+      this.cargandoGeo = false;
+      const coords = `${resp.coords.latitude},${resp.coords.longitude}`;
+      console.log(coords);
+      this.post.coords= coords;
+     }).catch((error) => {
+      this.cargandoGeo = false;
+       console.log('Error getting location', error);
+     });
+    console.log(this.post);
   }
 }

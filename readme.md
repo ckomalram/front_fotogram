@@ -13,6 +13,7 @@ https://ionicframework.com/docs/api/refresher
 https://ionicframework.com/docs/api/infinite-scroll
 https://ionicframework.com/docs/api/alert
 https://ionicframework.com/docs/api/toast
+https://ionicframework.com/docs/native/geolocation
 
  
 # comandos de consola utilizados
@@ -38,6 +39,8 @@ https://ionicframework.com/docs/api/toast
 * ionic cordova prepare android
 * ionic cordova build android
 * ionic cordova run android -l --host=192.168.0.14
+* npm install cordova-plugin-geolocation 
+* npm install @awesome-cordova-plugins/geolocation 
 
 # # Push app
 * ionic integrations enable cordova --add
