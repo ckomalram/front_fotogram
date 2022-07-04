@@ -12,7 +12,7 @@
     </ion-label>
   </ion-item>
 
-  <ion-slides mode="ios" pager="ios">
+  <!-- <ion-slides mode="ios" pager="ios">
     <ion-slide class="image-slide"
     [style]="img1 | domSanitizer"
     ></ion-slide>
@@ -23,9 +23,10 @@
     [style]="img3 | domSanitizer"
     ></ion-slide>
 
-  </ion-slides>
+  </ion-slides> -->
 
   <!-- mapa -->
+  <app-mapa [coords]="post.coords"></app-mapa>
 
   <!-- fin mapa -->
 
