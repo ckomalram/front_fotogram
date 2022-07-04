@@ -2,7 +2,10 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostService } from '../../services/post.service';
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
+// eslint-disable-next-line no-var
+declare var window: any;
 
 @Component({
   selector: 'app-tab2',
@@ -20,7 +23,8 @@ export class Tab2Page {
 
   cargandoGeo = false;
 
-  constructor(private postservices: PostService, private route: Router, private geolocation: Geolocation) {}
+  constructor(private postservices: PostService, private camera: Camera,
+    private route: Router, private geolocation: Geolocation) {}
 
   async crearPost(){
     console.log(this.post);
@@ -56,5 +60,28 @@ export class Tab2Page {
        console.log('Error getting location', error);
      });
     console.log(this.post);
+  }
+
+  openCamera(){
+    const options: CameraOptions = {
+      quality: 60,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      correctOrientation: true,
+      sourceType: this.camera.PictureSourceType.CAMERA
+    };
+
+    this.camera.getPicture(options).then((imageData) => {
+     // imageData is either a base64 encoded string or a file URI
+     // If it's base64 (DATA_URL):
+    //  let base64Image = 'data:image/jpeg;base64,' + imageData;
+    const img = window.Ionic.WebView.convertFileSrc(imageData);
+    console.log(img);
+    this.tempImages.push(img);
+    }, (err) => {
+     // Handle error
+    });
+
   }
 }

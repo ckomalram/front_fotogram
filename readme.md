@@ -22,7 +22,7 @@ https://ionicframework.com/docs/native/geolocation
 * ionic serve
 * ionic serve --lab
 * ionic build
-* ionic capacitor run android -l --host=192.168.0.14
+* ionic capacitor run android -l --host=192.168.0.10
 * ionic capacitor add/copy android
 * ionic capacitor sync android
 * ionic g (page, module, component, service, pipe, guard )
@@ -65,3 +65,10 @@ A la fecha de hoy, junio 2022, para poder utilizar bien sin problemas el one sig
 <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
    <string>Favor brindarnos tu autorización para poder saber tu ubicación</string>
 </edit-config>
+
+
+# Error: "package android.support.* does not exist"
+npm install jetifier
+npx jetify
+npx cap sync android
+
