@@ -78,6 +78,31 @@ export class Tab2Page {
     //  let base64Image = 'data:image/jpeg;base64,' + imageData;
     const img = window.Ionic.WebView.convertFileSrc(imageData);
     console.log(img);
+    this.postservices.subirImagen(imageData);
+    this.tempImages.push(img);
+    }, (err) => {
+     // Handle error
+    });
+
+  }
+
+  libreria(){
+    const options: CameraOptions = {
+      quality: 60,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      correctOrientation: true,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
+    };
+
+    this.camera.getPicture(options).then((imageData) => {
+     // imageData is either a base64 encoded string or a file URI
+     // If it's base64 (DATA_URL):
+    //  let base64Image = 'data:image/jpeg;base64,' + imageData;
+    const img = window.Ionic.WebView.convertFileSrc(imageData);
+    console.log(img);
+    this.postservices.subirImagen(imageData);
     this.tempImages.push(img);
     }, (err) => {
      // Handle error
