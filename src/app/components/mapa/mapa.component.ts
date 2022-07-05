@@ -16,9 +16,6 @@ export class MapaComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.coords);
-    if (!this.coords) {
-      this.coords ='34,34';
-    }
     const latlng = this.coords.split(',');
     const lat = Number(latlng[0]);
     const lng = Number(latlng[1]);

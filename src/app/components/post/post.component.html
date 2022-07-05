@@ -12,21 +12,21 @@
     </ion-label>
   </ion-item>
 
-  <!-- <ion-slides mode="ios" pager="ios">
+  <ion-slides mode="ios" pager="ios" *ngIf="post.images.length > 1">
     <ion-slide class="image-slide"
-    [style]="img1 | domSanitizer"
+    *ngFor="let img of post.images"
+    [style]="(img | imgpipe: post.usuario._id) | domSanitizer"
     ></ion-slide>
-    <ion-slide class="image-slide"
-    [style]="img2 | domSanitizer"
-    ></ion-slide>
-    <ion-slide class="image-slide"
-    [style]="img3 | domSanitizer"
-    ></ion-slide>
+  </ion-slides>
 
-  </ion-slides> -->
+  <ion-slides  *ngIf="post.images.length === 1" [options]="slideSoloOpts">
+    <ion-slide class="image-slide"
+    [style]="(post.images[0] | imgpipe: post.usuario._id) | domSanitizer"
+    ></ion-slide>
+  </ion-slides>
 
   <!-- mapa -->
-  <app-mapa [coords]="post.coords"></app-mapa>
+  <app-mapa [coords]="post.coords" *ngIf="post.coords"></app-mapa>
 
   <!-- fin mapa -->
 

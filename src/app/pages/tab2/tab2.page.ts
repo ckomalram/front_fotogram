@@ -36,6 +36,8 @@ export class Tab2Page {
         posicion: false
       };
 
+      this.tempImages = [];
+
       this.route.navigateByUrl('/main/tabs/tab1');
 
     }
