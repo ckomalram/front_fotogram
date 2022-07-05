@@ -16,13 +16,13 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'login'
+    redirectTo: 'main/tabs/tab1'
   }
-  ,
-  {
-    path: '**',
-    redirectTo: 'login'
-  }
+  // ,
+  // {
+  //   path: '**',
+  //   redirectTo: 'login'
+  // }
 
 
 ];
